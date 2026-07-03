@@ -2,6 +2,8 @@
 
 Halo bro! 👋 Ini project mantap buat nyulap OLT Hioso HA7302CST lu jadi punya REST API sendiri. Daripada pusing buka web bawaannya yang jadul banget (GoAhead-Webs), mending tarik aja datanya pake JSON! Gue udah rakit ini pake Node.js, Express, Axios, sama Cheerio.
 
+Fyi aja bro, REST API ini dibuat sebagai alternatif karena perangkat OLT Hioso seri HA7302CST ini sayangnya kagak punya layanan SNMP. Jadi buat ngemonitor atau integrasi ke sistem lu, API ini penyelamatnya!
+
 ## 🛠️ Persyaratan Tempur
 Sebelum tempur, pastiin kompi lu udah terpasang amunisi ini:
 - **Node.js** (Saran gue pake versi 18 ke atas)
