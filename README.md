@@ -162,7 +162,7 @@ http-rest-api-olt-hioso/
 │   ├── parser.js        # Parser HTML untuk mengekstrak data dari web OLT
 │   ├── session.js       # Manajemen sesi Axios ke OLT
 │   └── macLookup.js     # Helper pencarian OUI vendor MAC address
-├── .env                 # File konfigurasi (diabaikan oleh git)
+├── .env                 # File konfigurasi 
 ├── .gitignore           # File pengabaian git
 ├── package.json         # Dependensi dan script project
 ├── server.js            # Entry point REST API server
