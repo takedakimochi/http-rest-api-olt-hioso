@@ -47,6 +47,3 @@ Thumbs.db
 *.wmv
 
 
-# Env files
-.env
-.env.local
