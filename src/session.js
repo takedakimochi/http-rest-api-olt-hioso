@@ -1,10 +1,12 @@
 'use strict';
 
 const axios = require('axios');
+require('dotenv').config({ override: true });
 
-const BASE_URL = process.env.OLT_URL || 'http://10.10.3.5:8080';
-const USERNAME = process.env.OLT_USER || 'admin';
-const PASSWORD = process.env.OLT_PASS || 'admin';
+const BASE_URL = process.env.BASE_URL || process.env.OLT_URL;
+const USERNAME = process.env.USERNAME || process.env.OLT_USER;
+const PASSWORD = process.env.PASSWORD || process.env.OLT_PASS;
+
 
 // Singleton session — reuse across all requests
 let _session = null;

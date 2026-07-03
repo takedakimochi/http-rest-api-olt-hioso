@@ -1,12 +1,13 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+require('dotenv').config({ override: true });
 
 // ─────────────────────────────────────────────────────────────────
 //  KONFIGURASI
 // ─────────────────────────────────────────────────────────────────
-const BASE_URL = 'http://[IP_ADDRESS]'; // ip login hioso
-const USERNAME = 'admin'; // sesuaikan dengan username OLT HA7302CST
-const PASSWORD = 'admin'; // sesuaikan dengan password OLT HA7302CST
+const BASE_URL = process.env.BASE_URL;
+const USERNAME = process.env.USERNAME;
+const PASSWORD = process.env.PASSWORD;
 
 // ─────────────────────────────────────────────────────────────────
 //  PETA MENU — diambil dari item.asp OLT HA7302CST
