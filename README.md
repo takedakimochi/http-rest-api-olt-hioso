@@ -63,6 +63,94 @@ Kalo berhasil, ntar di terminal bakal muncul ginian bro:
 ```
 Nah, lu tinggal buka browser atau Postman lu, terus tembak deh `http://localhost:3000/api/menu` buat liat semua list menu yang ada!
 
+## 📡 Daftar Endpoint & Contoh Output
+Biar lu dapet gambaran, ini beberapa contoh endpoint favorit dan hasil output JSON-nya:
+
+### 1. Cek Koneksi (Health Check)
+**GET** `/api/health`
+```json
+{
+  "ok": true,
+  "status": "connected",
+  "oltUrl": "http://10.10.3.5:8080",
+  "oltUser": "admin",
+  "message": "Koneksi ke OLT Hioso HA7302CST berhasil"
+}
+```
+
+### 2. Lihat Semua Menu / Route API
+**GET** `/api/menu`
+```json
+{
+  "ok": true,
+  "version": "1.0.0",
+  "oltUrl": "http://10.10.3.5:8080",
+  "endpoints": {
+    "meta": [
+      { "method": "GET", "path": "/api/health", "desc": "Status koneksi OLT" },
+      { "method": "GET", "path": "/api/menu", "desc": "Daftar semua endpoint" }
+    ],
+    "system": [
+      { "method": "GET", "path": "/api/system/info", "desc": "Informasi sistem (nama, CPU, memori, uptime)" }
+      // ... dan buanyak menu lainnya
+    ]
+  }
+}
+```
+
+### 3. Cek Info Sistem OLT
+**GET** `/api/system/info`
+```json
+{
+  "ok": true,
+  "data": {
+    "deviceName": "HA7302CST",
+    "cpuUsage": "12%",
+    "memUsage": "45%",
+    "uptime": "10 days, 02:30:15"
+  }
+}
+```
+*(Catatan: isi datanya pasti ngikutin spek OLT lu pas ditembak bro)*
+
+### 4. Overview OLT
+**GET** `/api/olt/overview`
+```json
+{
+  "ok": true,
+  "data": {
+    "macAddress": "00:11:22:33:44:55",
+    "hardwareVersion": "V1.0",
+    "softwareVersion": "V2.3.4",
+    "status": "Normal"
+  }
+}
+```
+
+### 5. Daftar PON & Status ONU
+**GET** `/api/onu/pon-list`
+```json
+{
+  "ok": true,
+  "data": [
+    {
+      "ponPort": "GE0/1/1",
+      "totalOnu": 64,
+      "online": 60,
+      "offline": 4
+    },
+    {
+      "ponPort": "GE0/1/2",
+      "totalOnu": 32,
+      "online": 20,
+      "offline": 12
+    }
+  ]
+}
+```
+
+Lu tinggal copas endpoint yang lu butuhin ke Postman atau script lu! 🚀
+
 ## 🧪 Mau Tes Doang?
 Kalo lu cuma mau ngetes ping-ping menu OLT jalan apa nggak (tanpa ngejalanin server API), lu bisa jajal file `utama.js`:
 ```bash
